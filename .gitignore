@@ -1,3 +1,7 @@
+# ----- Custom Node.js .gitignore -----
+/build
+
+# ----- Default Node.js .gitignore -----
 # Logs
 logs
 *.log
