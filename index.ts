@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import indexRoutes from './routes/index'
-import * as newIndexRoutes from './routes/new-index'
+import indexRoutes from './routes/old.index'
+import * as routes from './routes/index'
 
 const app = express()
 const PORT: number = 3000
@@ -10,9 +10,10 @@ const PORT: number = 3000
 app.use(bodyParser.json())
 
 // Inicializando o arquivo de rotas da 'home'
-app.use(indexRoutes)
+// app.use(indexRoutes)
 
-newIndexRoutes.initializeRoutes()
+// Inicializando o arquivo de rotas Geral
+routes.bootstrap(app)
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`)
