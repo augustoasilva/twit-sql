@@ -1,17 +1,17 @@
-import { Router, Request, Response } from 'express'
+import { Router } from 'express'
 import { Route, BaseRoutes } from './base-routes'
+import { QueryController } from '../controllers/query-controller'
 
 export class QueryRoutes extends BaseRoutes {
 
+  private controller: QueryController = new QueryController()
   private router: Router = Router()
   private routes: Array<Route> = [
     {
       path: "/query",
       type: "get",
       middlewares: [],
-      controllerFunction: (req: Request, res: Response) => {
-        res.send({ message: "Rota \'/api/v1/query/\' recebeu o método GET !" })
-      }
+      controllerFunction: this.controller.get
     }
   ]
 
