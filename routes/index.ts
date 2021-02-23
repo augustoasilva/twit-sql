@@ -1,42 +1,22 @@
-import { Express, Request, Response, Router } from 'express'
-import { Route, BaseRoutes } from './base-routes'
-
-const homeRoutesArray: Array<Route> = [{
-  path: "/",
-  type: "get",
-  middlewares: [],
-  controllerFunction: (req: Request, res: Response) => { res.send({ message: "Rota \'/api/v1/\' recebeu o método GET !" }) }
-},
-{
-  path: "/",
-  type: "post",
-  middlewares: [],
-  controllerFunction: (req: Request, res: Response) => {
-    res.send({ message: "Rota \'/api/v1\' recebeu o método POST !" })
-  }
-}
-]
-
-const queriesArray: Array<Route> = [{
-  path: "/query",
-  type: "get",
-  middlewares: [],
-  controllerFunction: (req: Request, res: Response) => { res.send({ message: "Rota \'/api/v1/query/\' recebeu o método GET !" }) }
-}
-]
+import { Express, Router } from 'express'
+import { HomeRoutes } from './home-routes'
+import { QueryRoutes } from './query-routes'
 
 const basePath = "/api/v1"
 
-const homeRoutes: BaseRoutes = new BaseRoutes(basePath, homeRoutesArray, Router())
-const queryRoutes: BaseRoutes = new BaseRoutes(basePath, queriesArray, Router())
+const homeRoutes: HomeRoutes = new HomeRoutes(basePath)
+const queryRoutes: QueryRoutes = new QueryRoutes(basePath)
 
 function bootstrap (app: Express): void {
 
-  const homeRouter = homeRoutes.setup(Router())
-  const queryRouter = queryRoutes.setup(Router())
+  // Setando as rotas no Router do Express
+  homeRoutes.setup(Router())
+  queryRoutes.setup(Router())
 
-  app.use(homeRoutes.getBasePath(), homeRouter)
-  app.use(queryRoutes.getBasePath(), queryRouter)
+  // const queryRouter = queryRoutes.setup(Router())
+
+  app.use(homeRoutes.getBasePath(), homeRoutes.getRouter())
+  app.use(queryRoutes.getBasePath(), queryRoutes.getRouter())
 }
 // initializeRoutes()
 export { bootstrap }
