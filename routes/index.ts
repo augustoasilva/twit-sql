@@ -1,4 +1,4 @@
-import { Express, Router } from 'express'
+import { Application, Express, Router } from 'express'
 import { HomeRoutes } from './home-routes'
 import { QueryRoutes } from './query-routes'
 
@@ -14,7 +14,7 @@ const queryRoutes: QueryRoutes = new QueryRoutes(basePath)
  * 
  * @param app objeto que contém a aplicação do Express.
  */
-function initialize (app: Express): void {
+function initialize (app: Application): void {
 
   // Setando as rotas no Router do Express.
   homeRoutes.setup(Router())

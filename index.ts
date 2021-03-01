@@ -1,8 +1,8 @@
-import express from 'express'
+import express, { Application } from 'express'
 import bodyParser from 'body-parser'
 import * as routes from './routes/index'
 
-const app = express()
+const app: Application = express()
 const PORT: number = 3000
 
 // Aplicando o parser de JSON em todas as rotas.
