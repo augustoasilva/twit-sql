@@ -22,7 +22,25 @@ export class QueryRoutes extends BaseRoutes {
       type: "get",
       middlewares: [],
       controllerFunction: this.controller.get
-    }
+    },
+    {
+      path: "/query",
+      type: "post",
+      middlewares: [],
+      controllerFunction: this.controller.post
+    },
+    {
+      path: "/query",
+      type: "put",
+      middlewares: [],
+      controllerFunction: this.controller.put
+    },
+    {
+      path: "/query",
+      type: "delete",
+      middlewares: [],
+      controllerFunction: this.controller.delete
+    },
   ]
 
   constructor(basePath: string) {
