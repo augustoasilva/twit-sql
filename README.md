@@ -29,9 +29,17 @@ E depois rodar o servidor de desenvolvimento:
 npm run dev
 ```
 
+## Como rodar os testes?
+
+Após clonar o projeto e entrar na pasta do projeto, basta executar o seguinte comando:
+
+```
+npm test
+```
+
 ## Como usar em produção?
 
-O uso em produção ainda não é recomendado, pois a aplicação não está pronta. Entretanto basta **compilar** (ou como alguns gostam de chamar **buildar**) o projeto:
+O uso em produção não é recomendado, pois a aplicação é para aprendizado e ainda não está finalizada. Entretanto, após clonar o repositório e entrar na pasta, basta **compilar** (ou como alguns gostam de chamar **buildar**) o projeto:
 
 ```
 npm run build
