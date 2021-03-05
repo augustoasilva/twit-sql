@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-export interface Controller {
+export default interface Controller {
 
   get (req: Request, res: Response): void
   post (req: Request, res: Response): void

@@ -2,10 +2,13 @@ import express, { Application } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import helment from 'helmet'
+import { config } from 'dotenv'
 import * as routes from './routes/index'
 
+config()
+
 const app: Application = express()
-const PORT: number = 3000
+const PORT: string | undefined = process.env.PORT
 
 // Aplicando o CORS em todas as rotas.
 app.use(cors())
