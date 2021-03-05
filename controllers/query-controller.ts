@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { Controller } from "./controller-interface";
 
-export class QueryController implements Controller {
+export default class QueryController implements Controller {
 
   constructor() {
 

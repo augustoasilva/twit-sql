@@ -1,6 +1,6 @@
-import { Application, Express, Router } from 'express'
+import { Application, Router } from 'express'
 import { HomeRoutes } from './home-routes'
-import { QueryRoutes } from './query-routes'
+import QueryRoutes from './query-routes'
 
 // Setamos o nosso basePath padrão da nossa API
 const basePath = "/api/v1"

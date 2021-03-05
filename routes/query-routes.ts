@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import { Route, BaseRoutes } from './base-routes'
-import { QueryController } from '../controllers/query-controller'
+import QueryController from '../controllers/query-controller'
 
-export class QueryRoutes extends BaseRoutes {
+export default class QueryRoutes extends BaseRoutes {
 
   private controller: QueryController = new QueryController()
 
